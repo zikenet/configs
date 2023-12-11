@@ -1,3 +1,9 @@
+![tmux screenshot](./images/tmux.png)
+![nvim screenshot](./images/neovim-1.png)
+![nvim screenshot](./images/neovim-2.png)
+
+
+
 ## Contents
 
 - vim (Neovim) config
