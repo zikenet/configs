@@ -3,6 +3,7 @@
 - vim (Neovim) config
 - tmux config
 - PowerShell config
+- Starship prompt config
 
 ## Neovim setup
 
@@ -38,3 +39,7 @@
 - [PSFzf](https://github.com/kelleyma49/PSFzf) - Fuzzy finder
 - [Nerd Font](https://www.nerdfonts.com/)(v3.0 or greater) **_(optional, but
   needed to display some icons)_** (I use Jetbrains)
+
+## Starship prompt
+
+- [Starship-prompt](https://starship.rs/)
