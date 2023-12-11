@@ -42,4 +42,4 @@
 
 ## Starship prompt
 
-- [Starship-prompt](https://starship.rs/)
+- [Starship-prompt](https://starship.rs/) - The minimal, blazing-fast, and infinitely customizable prompt for any shell!
