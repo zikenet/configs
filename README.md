@@ -1,3 +1,10 @@
+## Contents
+
+- vim (Neovim) config
+- tmux config
+- fish config
+- PowerShell config
+
 ## Neovim setup
 
 ### Requirements
@@ -12,8 +19,23 @@
   - **live grep**: [ripgrep](https://github.com/BurntSushi/ripgrep)
   - **find files**: [fd](https://github.com/sharkdp/fd)
 - a terminal that support true color and *undercurl*:
-  - [kitty](https://github.com/kovidgoyal/kitty) **_(Linux & Macos)_**
-  - [wezterm](https://github.com/wez/wezterm) **_(Linux, Macos & Windows)_**
-  - [alacritty](https://github.com/alacritty/alacritty) **_(Linux, Macos & Windows)_**
-  - [iterm2](https://iterm2.com/) **_(Macos)_**
+  - [iterm2](https://iterm2.com/) **_(Macos)_** I use iterm2 but [ kitty, wezterm, alacritty ] can be used
 - [Catppuccin](https://github.com/catppuccin/nvim)
+
+
+## Shell setup (macOS & Linux)
+
+- [Fish shell](https://fishshell.com/)
+- [Fisher](https://github.com/jorgebucaran/fisher) - Plugin manager
+- [Nerd fonts](https://github.com/ryanoasis/nerd-fonts) - Powerline-patched fonts. I use Jetbrain.
+- [z for fish](https://github.com/jethrokuan/z) - Directory jumping
+
+## PowerShell setup (Windows)
+
+- [Scoop](https://scoop.sh/) - A command-line installer
+- [Git for Windows](https://gitforwindows.org/)
+- [Oh My Posh](https://ohmyposh.dev/) - Prompt theme engine
+- [Terminal Icons](https://github.com/devblackops/Terminal-Icons) - Folder and file icons
+- [PSReadLine](https://docs.microsoft.com/en-us/powershell/module/psreadline/) - Cmdlets for customizing the editing environment, used for autocompletion
+- [z](https://www.powershellgallery.com/packages/z) - Directory jumper
+- [PSFzf](https://github.com/kelleyma49/PSFzf) - Fuzzy finder
