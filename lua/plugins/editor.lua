@@ -25,13 +25,6 @@ return {
         desc = "Find Plugin Files",
       },
       {
-        "<leader>fh",
-        function()
-          local builtin = require("telescope.builtin")
-          builtin.help_tags()
-        end,
-      },
-      {
         "<leader>fB",
         function()
           local telescope = require("telescope")
@@ -54,6 +47,20 @@ return {
         desc = "Open File Browser with the path of the current buffer",
       },
     },
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = { "jvgrootveld/telescope-zoxide" },
+    keys = {
+      {
+        "<leader>fz",
+        "<cmd>Telescope zoxide list<CR>",
+        desc = "Find directories",
+      },
+    },
+    opts = function()
+      require("telescope").load_extension("zoxide")
+    end,
   },
   -- cmp
   {
