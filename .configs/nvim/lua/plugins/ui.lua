@@ -25,12 +25,18 @@ return {
             filename = "[+]" .. filename
           end
           local ft_icon, ft_color = devicons.get_icon_color(filename)
-          return { { ft_icon, guifg = ft_color }, { " " }, { filename } }
+          return {
+            { " " },
+            { ft_icon, guifg = ft_color },
+            { " " },
+            { filename, guifg = "#c8c5c5" },
+            { " " },
+            guibg = "#292c2e",
+          }
         end,
       })
     end,
-  },
-  --nvim-noice
+  }, --nvim-noice
   {
     "folke/noice.nvim",
     opts = function(_, opts)
