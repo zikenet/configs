@@ -10,6 +10,9 @@ local ext = function(table, key, value)
   return tbl
 end
 
+-- Disable delete charater clipbord
+keymap.set("n", "x", '"_x')
+
 -- Increment/Decrement
 keymap.set("n", "+", "<C-a")
 keymap.set("n", "-", "<C-x")
@@ -26,6 +29,9 @@ keymap.set("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap.set("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap.set("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap.set("v", "<A-k>", ":m .-2<CR>==", opts)
+
+-- Doc and Implementaiton
+keymap.set("n", "<leader>cp", "<Cmd>Lspsaga peek_definition<CR>", ext(opts, "desc", "Peek Definition"))
 
 -- Better Escape
 keymap.set("i", "jk", "<ESC>", opts)
