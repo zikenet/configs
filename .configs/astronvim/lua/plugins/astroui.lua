@@ -351,17 +351,22 @@ return {
       return opts
     end,
   },
-  --Noice config
-  -- {
-  --   "folke/noice.nvim",
-  --   opts = function(_, opts)
-  --     opts.routes = {
-  --       {
-  --         filter = { event = "notify", find = "No information available" },
-  --         opts = { skip = true },
-  --       },
-  --     }
-  --     opts.presets.lsp_doc_border = true
-  --   end,
-  -- },
+  --  Noice config
+  {
+    "folke/noice.nvim",
+    opts = function(_, opts)
+      opts.routes = {
+        {
+          filter = { event = "notify", find = "No information available" },
+          opts = { skip = true },
+        },
+      }
+      opts.presets.lsp_doc_border = true
+    end,
+  },
+  -- pwsh
+  {
+    "akinsho/toggleterm.nvim",
+    opts = function(_, opts) opts.shell = "pwsh" end,
+  },
 }
