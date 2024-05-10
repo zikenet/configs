@@ -115,6 +115,8 @@ return {
           function() require("astrocore.buffer").nav(-vim.v.count1) end,
           desc = "Previous buffer",
         },
+        -- New tab
+        ["te"] = { ":tabedit" },
 
         -- Select all
         ["<C-a>"] = { "gg<S-V>G" },
@@ -131,6 +133,11 @@ return {
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
         ["<Leader>b"] = { desc = "Buffers" },
+        -- Windows
+        ["<Leader>w"] = { desc = "Windows" },
+        ["<Leader>ws"] = { ":w!<cr>", desc = "save" },
+        ["<Leader>wm"] = { "<C-w>_<C-W>|", desc = "Maximize Window" },
+        ["<Leader>wr"] = { "<C-w>=", desc = "Restore Window" },
         -- quick save
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
       },
