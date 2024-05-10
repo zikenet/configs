@@ -43,7 +43,7 @@ return {
               GitSignsChange = { fg = colors.peach },
               LineNr = { fg = colors.overlay0 },
               LspInfoBorder = { link = "FloatBorder" },
-              Pmenu = { bg = colors.base, fg = "" },
+              Pmenu = { bg = colors.mantle, fg = "" },
               PmenuSel = { bg = colors.surface0, fg = "" },
               YankHighlight = { bg = colors.surface2 },
 
@@ -265,6 +265,7 @@ return {
       })
     end,
   },
+
   {
     "LazyVim/LazyVim",
     opts = {

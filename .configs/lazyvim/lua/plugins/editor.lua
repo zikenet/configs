@@ -26,6 +26,7 @@ return {
       },
       {
         "<leader>fB",
+        -- ":Telescop file_browser path=%:p:h=%:p:h<cr>",
         function()
           local telescope = require("telescope")
 
@@ -34,12 +35,12 @@ return {
           end
 
           telescope.extensions.file_browser.file_browser({
-            path = "%:p:h",
+            path = "%:p:h=%:p:h<cr>",
             cwd = telescope_buffer_dir(),
             respect_gitignore = false,
             hidden = true,
             grouped = true,
-            previewer = false,
+            previewer = true,
             initial_mode = "normal",
             layout_config = { height = 40 },
           })
