@@ -11,6 +11,7 @@ return {
   { import = "astrocommunity.pack.php" },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.vue" },
+  { import = "astrocommunity.pack.java" },
   { import = "astrocommunity.pack.dart" },
   { import = "astrocommunity.pack.astro" },
   { import = "astrocommunity.pack.python" },
