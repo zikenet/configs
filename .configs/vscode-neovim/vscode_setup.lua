@@ -5,16 +5,16 @@ local vscode = require("vscode")
 local opts = { noremap = true, silent = true }
 
 local split = function(...)
-  local direction = select(1, ...)
-  local file = select(2, ...)
-  if direction == "h" then
-    vscode.call("workbench.action.splitEditorDown")
-  else
-    vscode.call("workbench.action.splitEditorRight")
-  end
-  if file ~= nil then
-    vscode.notify("open-file", expand("__vscode_new__"), "all")
-  end
+	local direction = select(1, ...)
+	local file = select(2, ...)
+	if direction == "h" then
+		vscode.call("workbench.action.splitEditorDown")
+	else
+		vscode.call("workbench.action.splitEditorRight")
+	end
+	if file ~= nil then
+		vscode.notify("open-file", expand("__vscode_new__"), "all")
+	end
 end
 
 -- Bind C-/ to vscode commentary since calling from vscode produces double comments due to multiple cursors
@@ -29,12 +29,15 @@ keymap.set({ "n", "x" }, "<C-k>", "<CMD>call VSCodeNotify('workbench.action.navi
 keymap.set({ "n", "x" }, "<C-h>", "<CMD>call VSCodeNotify('workbench.action.navigateLeft')<CR>", opts)
 keymap.set({ "n", "x" }, "<C-l>", "<CMD>call VSCodeNotify('workbench.action.navigateRight')<CR>", opts)
 
+-- Select all
+keymap.set({ "n", "x" }, "<C-a>", "gg<S-V>G", opts)
+
 -- Split window
 keymap.set("n", "\\", function()
-  split("h")
+	split("h")
 end, opts)
 keymap.set("n", "|", function()
-  split("v")
+	split("v")
 end, opts)
 
 -- Buffer Switch
