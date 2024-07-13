@@ -81,8 +81,8 @@ return {
   {
     "folke/which-key.nvim",
     opts = function(_, opts)
-      opts.window = {
-        border = "single",
+      opts.win = {
+        border = "rounded", -- none, single, double, shadow
       }
       return opts
     end,
