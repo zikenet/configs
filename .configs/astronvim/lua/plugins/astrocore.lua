@@ -83,9 +83,9 @@ return {
         ["<Leader>e"] = { "<Cmd>Neotree float toggle<CR>", desc = "Toggle Explorer" },
 
         -- Doc and Implementation
-        ["<Leader>gd"] = { "<Cmd>Lspsaga hover_doc<CR>", desc = "Hover Doc" },
-        ["<Leader>lp"] = { "<Cmd>Lspsaga finder<CR>", desc = "Lspsaga Finder" },
-        ["<Leader>lH"] = { "<Cmd>Lspsaga peek_definition<CR>", desc = "Peek Definition" },
+        -- ["<Leader>gd"] = { "<Cmd>Lspsaga hover_doc<CR>", desc = "Hover Doc" },
+        -- ["<Leader>lp"] = { "<Cmd>Lspsaga finder<CR>", desc = "Lspsaga Finder" },
+        -- ["<Leader>lH"] = { "<Cmd>Lspsaga peek_definition<CR>", desc = "Peek Definition" },
         --[] = ("n", "gt", "<Cmd>Lspsaga goto_type_definition<CR>", opts),
         -- [] = ("i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts),
 
