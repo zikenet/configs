@@ -39,6 +39,8 @@ keymap.set("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap.set("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap.set("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap.set("v", "<A-k>", ":m .-2<CR>==", opts)
+keymap.set("v", "<", "<gv", opts)
+keymap.set("v", ">", ">gv", opts)
 
 -- Better Escape
 keymap.set("i", "jk", "<ESC>", opts)

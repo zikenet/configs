@@ -20,8 +20,22 @@ end
 -- Bind C-/ to vscode commentary since calling from vscode produces double comments due to multiple cursors
 --keymap.set({"n","x"}, "<C-/>", "<CMD>call Comment()<CR>", opts)
 
+-- enable clipboard
+vim.opt.clipboard = "unnamedplus"
+
+-- Disable delete character clipboard
+keymap.set("n", "x", '"_x')
+
 -- Which Key
 keymap.set({ "n", "x" }, "<Space>", "<CMD>call VSCodeNotify('whichkey.show')<CR>")
+
+-- Move group visual
+keymap.set("x", "J", ":move '>+1<CR>gv-gv", opts)
+keymap.set("x", "K", ":move '<-2<CR>gv-gv", opts)
+keymap.set("v", "<", "<gv", opts)
+keymap.set("v", ">", ">gv", opts)
+keymap.set("v", "<A-j>", ":m .+1<CR>==", opts)
+keymap.set("v", "<A-k>", ":m .-2<CR>==", opts)
 
 -- Better Navigation
 keymap.set({ "n", "x" }, "<C-j>", "<CMD>call VSCodeNotify('workbench.action.navigateDown')<CR>", opts)
