@@ -18,7 +18,7 @@ return {
   { import = "astrocommunity.fuzzy-finder" },
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.utility.noice-nvim" },
-  { import = "astrocommunity.project.nvim-spectre" },
+  { import = "astrocommunity.search.nvim-spectre" },
   { import = "astrocommunity.pack.typescript-all-in-one" },
   -- import/override with your plugins folder
 }
