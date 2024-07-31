@@ -16,7 +16,6 @@ set.cmdheight = 1
 set.laststatus = 3
 set.expandtab = true
 set.scrolloff = 10
-set.shell = "fish"
 set.backupskip = { "/tmp/*", "/private/tmp/*" }
 set.inccommand = "split"
 set.ignorecase = true -- Case insensitive searching UNLESS /C or capital in search
