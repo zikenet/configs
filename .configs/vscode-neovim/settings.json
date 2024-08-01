@@ -102,6 +102,26 @@
       ]
     },
     {
+      "key": "c",
+      "name": "Code",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "a",
+          "name": "Code Action",
+          "type": "command",
+          "command": "editor.action.quickFix"
+        },
+        {
+          "key": "r",
+          "name": "Rename",
+          "type": "command",
+          "command": "editor.action.rename",
+          "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+        }
+      ]
+    },
+    {
       "key": "d",
       "name": "Debug...",
       "type": "bindings",
@@ -211,22 +231,15 @@
       "bindings": [
         {
           "key": "f",
-          "name": "File",
+          "name": "files",
           "type": "command",
-          "command": "editor.action.startFindReplaceAction"
+          "command": "workbench.action.quickOpen"
         },
         {
-          "key": "s",
-          "name": "Symbol",
+          "key": "z",
+          "name": "Find directories",
           "type": "command",
-          "command": "editor.action.rename",
-          "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
-        },
-        {
-          "key": "p",
-          "name": "Project",
-          "type": "command",
-          "command": "workbench.action.replaceInFiles"
+          "command": "workbench.action.openRecent"
         }
       ]
     },
@@ -354,9 +367,16 @@
       "bindings": [
         {
           "key": "f",
-          "name": "files",
+          "name": "File",
           "type": "command",
-          "command": "workbench.action.quickOpen"
+          "command": "editor.action.startFindReplaceAction"
+        },
+
+        {
+          "key": "p",
+          "name": "Project",
+          "type": "command",
+          "command": "workbench.action.replaceInFiles"
         },
         {
           "key": "t",
