@@ -65,44 +65,67 @@ return {
   -- }, --nvim-noice
   -- c8c5c5
   -- 292c2e
-  {
-    "folke/noice.nvim",
-    opts = function(_, opts)
-      opts.routes = {
-        {
-          filter = { event = "notify", find = "No information available" },
-          opts = { skip = true },
-        },
-      }
-      opts.presets.lsp_doc_border = true
-    end,
-  },
   --which-key
   {
     "folke/which-key.nvim",
-    opts = function(_, opts)
-      opts.win = {
-        border = "rounded", -- none, single, double, shadow
-      }
-      return opts
-    end,
+    event = "VeryLazy",
+    opts_extend = { "spec" },
+    opts = {
+      preset = "modern",
+    },
   },
   {
-    "nvimdev/dashboard-nvim",
-    event = "VimEnter",
-    opts = function(_, opts)
-      local logo = [[
+    "saghen/blink.cmp",
+    opts = {
+      completion = {
+        menu = {
+          border = "rounded",
+        },
+        documentation = {
+          window = {
+            border = "rounded",
+          },
+        },
+      },
+      keymap = {
+        preset = "enter",
+        ["<C-y>"] = { "select_and_accept" },
+        snippet_forward = { "<Up>", "<Tab>" },
+        snippet_backward = { "<Down>", "<S-Tab>" },
+      },
+    },
+  },
+
+  {
+    "snacks.nvim",
+    opts = {
+      dashboard = {
+        preset = {
+          header = [[
       ███████╗███████╗░█████╗░██╗░░░░░░█████╗░░█████╗░███╗░░██╗
       ╚════██║██╔════╝██╔══██╗██║░░░░░██╔══██╗██╔══██╗████╗░██║
       ░░███╔═╝█████╗░░███████║██║░░░░░██║░░╚═╝██║░░██║██╔██╗██║
       ██╔══╝░░██╔══╝░░██╔══██║██║░░░░░██║░░██╗██║░░██║██║╚████║
       ███████╗██║░░░░░██║░░██║███████╗╚█████╔╝╚█████╔╝██║░╚███║
       ╚══════╝╚═╝░░░░░╚═╝░░╚═╝╚══════╝░╚════╝░░╚════╝░╚═╝░░╚══╝
-      ]]
+      ]],
 
-      logo = string.rep("\n", 8) .. logo .. "\n\n"
-      opts.config.header = vim.split(logo, "\n")
-    end,
+        -- stylua: ignore
+        ---@type snacks.dashboard.Item[]
+        keys = {
+          { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
+          { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
+          { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
+          { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+          { icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
+          { icon = " ", key = "s", desc = "Restore Session", section = "session" },
+          { icon = " ", key = "x", desc = "Lazy Extras", action = ":LazyExtras" },
+          { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
+          { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+        },
+        },
+      },
+    },
   },
   {
     "nvim-lualine/lualine.nvim",
@@ -145,25 +168,29 @@ return {
             {
               function() return require("noice").api.status.command.get() end,
               cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
-              color = function() return LazyVim.ui.fg("Statement") end,
+              -- color = function() return LazyVim.ui.fg("Constant") end,
+              color = function() return { fg = Snacks.util.color("Statement")} end,
             },
             -- stylua: ignore
             {
               function() return require("noice").api.status.mode.get() end,
               cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-              color = function() return LazyVim.ui.fg("Constant") end,
+              -- color = function() return LazyVim.ui.fg("Constant") end,
+              color = function() return { fg = Snacks.util.color("Constant")} end,
             },
             -- stylua: ignore
             {
               function() return "  " .. require("dap").status() end,
               cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
-              color = function() return LazyVim.ui.fg("Debug") end,
+              color = function() return { fg = Snacks.util.color("Debug")} end,
+              --color = function() return LazyVim.ui.fg("Debug") end,
             },
             -- stylua: ignore
             {
               require("lazy.status").updates,
               cond = require("lazy.status").has_updates,
-              color = function() return LazyVim.ui.fg("Special") end,
+              color = function() return { fg = Snacks.util.color("Special")} end,
+              --color = function() return LazyVim.ui.fg("Special") end,
             },
             {
               "diff",
