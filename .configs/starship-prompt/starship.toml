@@ -6,12 +6,21 @@ add_newline = false
 # error_symbol = '[➜](bold green)'   # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
 # success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
 
-[username]
-format = "[╭─➜](bold green) "
-style_user = "bold green"
-style_root = "bold green"
-show_always = true
+# [username]
+# format = "[╭─➜](bold green) "
+# style_user = "bold green"
+# style_root = "bold green"
+# show_always = true
+
+# [character]
+# success_symbol = "[╰➜](bold green)"
+# error_symbol = "[╰➜](bold green)"
+
+format= """\
+[╭──](#8fd7b7)(bold 238)[♔ ](bold #8ae6fa)$hostname$directory\
+$all[╰](#8fd7b7)(bold 238)$character"""
 
 [character]
-success_symbol = "[╰➜](bold green)"
-error_symbol = "[╰➜](bold green)"
+success_symbol = "[➜](#8fd7b7)"
+error_symbol = "[➜](#8fd7b7)"
+vicmd_symbol = "[➜](#8fd7b7)"
