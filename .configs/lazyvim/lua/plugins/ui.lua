@@ -95,12 +95,6 @@ return {
           },
         },
       },
-      keymap = {
-        preset = "enter",
-        ["<C-y>"] = { "select_and_accept" },
-        snippet_forward = { "<Up>", "<Tab>" },
-        snippet_backward = { "<Down>", "<S-Tab>" },
-      },
     },
   },
 
