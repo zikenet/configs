@@ -3,8 +3,25 @@ return {
   {
     "rcarriga/nvim-notify",
     opts = function(_, opts)
+      opts.timeout = 1000
       opts.background_colour = "#89b4fa"
     end,
+  },
+  -- noice
+  {
+    "folke/noice.nvim",
+    opts = {
+      routes = {
+        filter = {
+          event = "notify",
+          find = "No information available",
+        },
+        opts = { skip = true },
+      },
+      presets = {
+        lsp_doc_border = true, -- add a border to hover docs and signature help
+      },
+    },
   },
   {
     "williamboman/mason.nvim",
@@ -28,14 +45,6 @@ return {
         },
       }
     end,
-  },
-  {
-    "folke/noice.nvim",
-    opts = {
-      presets = {
-        lsp_doc_border = true, -- add a border to hover docs and signature help
-      },
-    },
   },
   --incline
   -- {
