@@ -63,7 +63,7 @@ keymap.set("i", "jk", "<ESC>", opts)
 keymap.set("v", "p", '"_dp', opts)
 
 -- Neotree float
--- keymap.set("n", "<leader>e", "<Cmd>Neotree float toggle<CR>", ext(opts, "desc", "Toggle Explorer"))
+keymap.set("n", "<leader>e", "<Cmd>Neotree float toggle<CR>", ext(opts, "desc", "Toggle Explorer"))
 
 -- Split window
 keymap.set("n", "\\", ":split<Return>", opts)
