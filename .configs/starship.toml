@@ -30,8 +30,9 @@ format = "[♔ ](bold #8ae6fa)"
 show_always = true
 
 [character]
-success_symbol = "[➜](#8fd7b7)(bold 238)" 
-error_symbol = "[➜](#8fd7b7)(bold 238)" 
+success_symbol = "[⪼](#8fd7b7)(bold 238)" 
+error_symbol = "[⪼](#8fd7b7)(bold 238)" 
+vimcmd_symbol = "[⪻](#8fd7b7)(bold 238)" 
 
 # Disable the package module, hiding it from the prompt completely
 # [package]
