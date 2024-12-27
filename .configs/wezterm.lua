@@ -167,9 +167,6 @@ config.colors = {
 config.window_background_opacity = 0.9
 config.macos_window_background_blur = 15
 
--- Settings
-config.default_prog = { fish_path, "-l" }
-
 -- Keys
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = {
