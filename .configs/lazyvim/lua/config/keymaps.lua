@@ -56,6 +56,14 @@ keymap.set("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap.set("v", "<", "<gv", opts)
 keymap.set("v", ">", ">gv", opts)
 
+-- Centering
+keymap.set("n", "n", "nzz", opts)
+keymap.set("n", "N", "Nzz", opts)
+keymap.set("n", "*", "*zz", opts)
+keymap.set("n", "#", "#zz", opts)
+keymap.set("n", "g*", "g*zz", opts)
+keymap.set("n", "g#", "g#zz", opts)
+
 -- Better Escape
 keymap.set("i", "jk", "<ESC>", opts)
 
