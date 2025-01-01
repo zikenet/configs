@@ -47,32 +47,12 @@ return {
         b = { bg = transparent_bg, fg = C.sky, gui = "bold" },
         c = { bg = transparent_bg, fg = C.sky },
       }
-      local mode_map = {
-        ["NORMAL"] = "N",
-        ["O-PENDING"] = "N?",
-        ["INSERT"] = "I",
-        ["VISUAL"] = "V",
-        ["V-BLOCK"] = "VB",
-        ["V-LINE"] = "VL",
-        ["V-REPLACE"] = "VR",
-        ["REPLACE"] = "R",
-        ["COMMAND"] = "!",
-        ["SHELL"] = "SH",
-        ["TERMINAL"] = "T",
-        ["EX"] = "X",
-        ["S-BLOCK"] = "SB",
-        ["S-LINE"] = "SL",
-        ["SELECT"] = "S",
-        ["CONFIRM"] = "Y?",
-        ["MORE"] = "M",
-      }
 
       return {
         --[[add your custom lualine config here]]
         options = {
           theme = catppuccin,
           component_separators = "",
-          -- section_separators = { left = "", right = "" },
           section_separators = {},
           globalstatus = vim.o.laststatus == 3,
           disabled_filetypes = { statusline = { "dashboard", "alpha", "ministarter", "snacks_dashboard" } },
@@ -82,15 +62,10 @@ return {
           lualine_a = {
             {
               "mode",
-              fmt = function(s)
-                return mode_map[s] or s
-              end,
+              separator = { right = "|" },
             },
           },
-          lualine_b = {
-            -- { "branch", separator = "|", padding = { left = 1, right = 1 } },
-            -- "filetype",
-          },
+          lualine_b = {},
           lualine_c = {
             {
               "branch",
@@ -112,7 +87,6 @@ return {
                 hint = icons.diagnostics.Hint,
               },
             },
-            -- { "filetype", separator = "|", padding = { left = 1, right = 1 } },
           },
           lualine_x = {
              -- stylua: ignore
@@ -172,14 +146,6 @@ return {
           },
           lualine_y = {},
           lualine_z = {},
-          --   lualine_y = { "progress" },
-          --   lualine_z = {
-          --     {
-          --       "location",
-          --       -- separator = { right = "" },
-          --       left_padding = 2,
-          --     },
-          --   },
         },
         inactive_sections = {
           lualine_a = { "filename" },
