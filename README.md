@@ -1,9 +1,5 @@
 ![tmux screenshot](./images/tmux.png)
-![nvim screenshot](./images/neovim-1.png)
-![nvim screenshot](./images/neovim-2.png)
-![powershell screenshot](./images/powershell.png)
-
-
+![wezterm and neovim screenshot](./images/wezterm.png)
 
 ## Contents
 
@@ -28,7 +24,7 @@
   **_(optional)_**
   - **live grep**: [ripgrep](https://github.com/BurntSushi/ripgrep)
   - **find files**: [fd](https://github.com/sharkdp/fd)
-- a terminal that support true color and _undercurl_:
+- a terminal that support true color and *undercurl*:
   - [iterm2](https://iterm2.com/) **_(Macos)_** I use iterm2 but [ kitty,
     wezterm, alacritty ] can be used
 - [Catppuccin](https://github.com/catppuccin/nvim)
