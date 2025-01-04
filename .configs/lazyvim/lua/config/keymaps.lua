@@ -33,12 +33,12 @@ keymap.set("n", "te", ":tabedit", opts)
 -- keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", opts)
 
 -- Toggle previous & next buffers stored within Harpoon list
-keymap.set("n", "<Tab>", function()
-  harpoon:list():next()
-end)
-keymap.set("n", "<S-Tab>", function()
-  harpoon:list():prev()
-end)
+-- keymap.set("n", "<Tab>", function()
+--   harpoon:list():next()
+-- end)
+-- keymap.set("n", "<S-Tab>", function()
+--   harpoon:list():prev()
+-- end)
 
 -- Resize Window
 keymap.set("n", "<C-w><left>", "<C-w><")
@@ -85,12 +85,12 @@ keymap.del("n", "<leader>|")
 keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
 
 -- Tab
-keymap.set("n", "<leader>ta", ":$tabnew<CR>", ext(opts, "desc", "New Tab"))
-keymap.set("n", "<leader>tc", ":tabclose<CR>", ext(opts, "desc", "Close Tab"))
-keymap.set("n", "<leader>to", ":tabonly<CR>", ext(opts, "desc", "Only Tab"))
-keymap.set("n", "<leader>tn", ":tabn<CR>", ext(opts, "desc", "Next Tab"))
-keymap.set("n", "<leader>tp", ":tabp<CR>", ext(opts, "desc", "Previous Tab"))
--- move current tab to previous position
-keymap.set("n", "<leader>th", ":-tabmove<CR>", ext(opts, "desc", "Move Left"))
--- move current tab to next position
-keymap.set("n", "<leader>tl", ":+tabmove<CR>", ext(opts, "desc", "Move Right"))
+-- keymap.set("n", "<leader>ta", ":$tabnew<CR>", ext(opts, "desc", "New Tab"))
+-- keymap.set("n", "<leader>tc", ":tabclose<CR>", ext(opts, "desc", "Close Tab"))
+-- keymap.set("n", "<leader>to", ":tabonly<CR>", ext(opts, "desc", "Only Tab"))
+-- keymap.set("n", "<leader>tn", ":tabn<CR>", ext(opts, "desc", "Next Tab"))
+-- keymap.set("n", "<leader>tp", ":tabp<CR>", ext(opts, "desc", "Previous Tab"))
+-- -- move current tab to previous position
+-- keymap.set("n", "<leader>th", ":-tabmove<CR>", ext(opts, "desc", "Move Left"))
+-- -- move current tab to next position
+-- keymap.set("n", "<leader>tl", ":+tabmove<CR>", ext(opts, "desc", "Move Right"))
