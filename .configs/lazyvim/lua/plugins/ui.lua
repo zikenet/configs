@@ -22,18 +22,6 @@ return {
         opts = { skip = true },
       })
     end,
-    -- opts = {
-    --   routes = {
-    --     filter = {
-    --       event = "notify",
-    --       find = "No information available",
-    --     },
-    --     opts = { skip = true },
-    --   },
-    --   presets = {
-    --     lsp_doc_border = true, -- add a border to hover docs and signature help
-    --   },
-    -- },
   },
   {
     "williamboman/mason.nvim",
@@ -151,5 +139,18 @@ return {
     },
   },
   -- disable bufferline
-  { "akinsho/bufferline.nvim", enabled = false },
+  {
+    "akinsho/bufferline.nvim",
+    keys = {
+      { "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
+      { "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
+    },
+    opts = {
+      options = {
+        mode = "tabs",
+        show_buffer_close_icons = false,
+        show_close_icon = false,
+      },
+    },
+  },
 }
