@@ -10,8 +10,6 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
-local fish_path = "/opt/homebrew/bin/fish"
-
 local config = {}
 -- Use config builder object if possible
 if wezterm.config_builder then
@@ -102,7 +100,12 @@ config.color_scheme = "OneDark"
 config.color_schemes = {
 	["OneDark"] = {
 		foreground = "#f0f6fc",
-		background = "#1e1e1e",
+		-- background = "#202124",
+		background = "#1e1f21",
+		-- background = "#24292f",
+		-- background = "#21252b",
+		-- background = "#1e2327",
+		-- background = "#1e1e1e",
 		-- background = "#21262d",
 		-- background = "#1e1e2e",
 		-- background = "#1a1b26",
@@ -165,25 +168,25 @@ config.colors = {
 }
 
 config.window_background_opacity = 0.9
-config.macos_window_background_blur = 15
+config.macos_window_background_blur = 10
 
 -- Keys
-config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
+config.leader = { key = "t", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = {
 	-- Send C-a when pressing C-a twice
-	{ key = "a", mods = "LEADER|CTRL", action = act.SendKey({ key = "a", mods = "CTRL" }) },
+	-- { key = "a", mods = "LEADER|CTRL", action = act.SendKey({ key = "a", mods = "CTRL" }) },
 	{ key = "c", mods = "LEADER", action = act.ActivateCopyMode },
 	{ key = "phys:Space", mods = "LEADER", action = act.ActivateCommandPalette },
 
 	-- Pane keybindings
-	{ key = "s", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
-	{ key = "v", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+	{ key = "-", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+	{ key = "|", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 	{ key = "h", mods = "LEADER", action = act.ActivatePaneDirection("Left") },
 	{ key = "j", mods = "LEADER", action = act.ActivatePaneDirection("Down") },
 	{ key = "k", mods = "LEADER", action = act.ActivatePaneDirection("Up") },
 	{ key = "l", mods = "LEADER", action = act.ActivatePaneDirection("Right") },
 	{ key = "q", mods = "LEADER", action = act.CloseCurrentPane({ confirm = true }) },
-	{ key = "z", mods = "LEADER", action = act.TogglePaneZoomState },
+	{ key = "m", mods = "LEADER", action = act.TogglePaneZoomState },
 	{ key = "o", mods = "LEADER", action = act.RotatePanes("Clockwise") },
 	-- We can make separate keybindings for resizing panes
 	-- But Wezterm offers custom "mode" in the name of "KeyTable"
@@ -215,7 +218,7 @@ config.keys = {
 		}),
 	},
 	-- Key table for moving tabs around
-	{ key = "m", mods = "LEADER", action = act.ActivateKeyTable({ name = "move_tab", one_shot = false }) },
+	{ key = "s", mods = "LEADER", action = act.ActivateKeyTable({ name = "move_tab", one_shot = false }) },
 	-- Or shortcuts to move tab w/o move_tab table. SHIFT is for when caps lock is on
 	{ key = "{", mods = "LEADER|SHIFT", action = act.MoveTabRelative(-1) },
 	{ key = "}", mods = "LEADER|SHIFT", action = act.MoveTabRelative(1) },
