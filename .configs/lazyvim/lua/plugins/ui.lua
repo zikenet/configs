@@ -1,13 +1,4 @@
 return {
-  --nvim-notify
-  {
-    "rcarriga/nvim-notify",
-    opts = function(_, opts)
-      opts.timeout = 1000
-      opts.background_colour = "#89b4fa"
-    end,
-  },
-  -- noice
   {
     "folke/noice.nvim",
     opts = function(_, opts)
@@ -79,17 +70,6 @@ return {
         end,
       })
     end,
-  },
-  -- c8c5c5
-  -- 292c2e
-  --which-key
-  {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-    opts_extend = { "spec" },
-    opts = {
-      preset = "modern",
-    },
   },
   {
     "saghen/blink.cmp",
