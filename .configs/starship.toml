@@ -2,6 +2,6 @@
 add_newline = false
 
 [character]
-success_symbol = "[⇒](bold yellow)"
-error_symbol = "[⇒](bold red)"
-vicmd_symbol = "[⇐](bold yellow)"
+success_symbol = "[⇒](yellow)"
+error_symbol = "[⇒](red)"
+vicmd_symbol = "[⇐](yellow)"
