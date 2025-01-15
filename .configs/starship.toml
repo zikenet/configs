@@ -1,39 +1,7 @@
 # Inserts a blank line between shell prompts
 add_newline = false
 
-# Replace the '❯' symbol in the prompt with '➜'
-# [character] # The name of the module we are configuring is 'character'
-# error_symbol = '[⚡➜](#8fd7b7)'   # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
-# success_symbol = '[⚡➜](#8fd7b7)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
-
-# [username]
-# format = "[╭─➜](bold green) "
-# style_user = "bold green"
-# style_root = "bold green"
-# show_always = true
-
-# [character]
-# success_symbol = "[╰➜](bold green)"
-# error_symbol = "[╰➜](bold green)"
-
-# format= """\
-# [╭──](#8fd7b7)(bold 238)[ ♔ ](bold #8ae6fa)$hostname$directory\
-# $all[╰](#8fd7b7)(bold 238)$character"""
-#
-# [character]
-# success_symbol = "[➜](#8fd7b7)"
-# error_symbol = "[➜](#8fd7b7)"
-# vicmd_symbol = "[➜](bold green)"
-
-[username]
-format = "[♔ ](bold #8ae6fa)"
-show_always = true
-
 [character]
-success_symbol = "[⪼](#8fd7b7)(bold 238)" 
-error_symbol = "[⪼](#8fd7b7)(bold 238)" 
-vimcmd_symbol = "[⪻](#8fd7b7)(bold 238)" 
-
-# Disable the package module, hiding it from the prompt completely
-# [package]
-# disabled = true
+success_symbol = "[⇒](bold yellow)"
+error_symbol = "[⇒](bold red)"
+vicmd_symbol = "[⇐](bold yellow)"
