@@ -4,6 +4,7 @@ return {
     lazy = true,
     name = "catppuccin",
     opts = {
+      flavour = "mocha", -- latte, frappe, macchiato, mocha
       transparent_background = true, -- disables setting the background color.
       integrations = {
         barbecue = { dim_dirname = true, bold_basename = true, dim_context = false, alt_background = false },
@@ -127,6 +128,24 @@ return {
       },
     },
   },
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   opts = {
+  --     style = "moon",
+  --     transparent = true,
+  --     styles = {
+  --       comments = { italic = true },
+  --       keywords = { italic = true },
+  --       functions = {},
+  --       variables = {},
+  --       -- Background styles. Can be "dark", "transparent" or "normal"
+  --       sidebars = "transparent", -- style for sidebars, see below
+  --       floats = "transparent", -- style for floating windows
+  --     },
+  --   },
+  -- },
   {
     "LazyVim/LazyVim",
     opts = {
