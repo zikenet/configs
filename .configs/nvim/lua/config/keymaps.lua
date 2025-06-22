@@ -1,6 +1,7 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
+
 local discipline = require("zfalcon.discipline")
 discipline.cowboy()
 
@@ -20,24 +21,11 @@ keymap.set("n", "x", '"_x')
 keymap.set("n", "dw", 'vb"_d')
 
 -- Increment/Decrement
-keymap.set("n", "+", "<C-a")
-keymap.set("n", "-", "<C-x")
+keymap.set("n", "+", "<C-a>")
+keymap.set("n", "-", "<C-x>")
 
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
-
--- Buffer Switch
-keymap.set("n", "te", ":tabedit", opts)
--- keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", opts)
--- keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", opts)
-
--- Toggle previous & next buffers stored within Harpoon list
--- keymap.set("n", "<Tab>", function()
---   harpoon:list():next()
--- end)
--- keymap.set("n", "<S-Tab>", function()
---   harpoon:list():prev()
--- end)
 
 -- Resize Window
 keymap.set("n", "<C-w><left>", "<C-w><")
@@ -69,9 +57,6 @@ keymap.set("i", "jk", "<ESC>", opts)
 -- Disable copy when pasting
 keymap.set("v", "p", '"_dp', opts)
 
--- Neotree float
-keymap.set("n", "<leader>e", "<Cmd>Neotree float toggle<CR>", ext(opts, "desc", "Toggle Explorer"))
-
 -- Split window
 keymap.set("n", "\\", ":split<Return>", opts)
 keymap.set("n", "|", ":vsplit<Return>", opts)
@@ -82,14 +67,3 @@ keymap.del("n", "<leader>|")
 
 -- Oil
 keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
-
--- Tab
--- keymap.set("n", "<leader>ta", ":$tabnew<CR>", ext(opts, "desc", "New Tab"))
--- keymap.set("n", "<leader>tc", ":tabclose<CR>", ext(opts, "desc", "Close Tab"))
--- keymap.set("n", "<leader>to", ":tabonly<CR>", ext(opts, "desc", "Only Tab"))
--- keymap.set("n", "<leader>tn", ":tabn<CR>", ext(opts, "desc", "Next Tab"))
--- keymap.set("n", "<leader>tp", ":tabp<CR>", ext(opts, "desc", "Previous Tab"))
--- -- move current tab to previous position
--- keymap.set("n", "<leader>th", ":-tabmove<CR>", ext(opts, "desc", "Move Left"))
--- -- move current tab to next position
--- keymap.set("n", "<leader>tl", ":+tabmove<CR>", ext(opts, "desc", "Move Right"))

@@ -45,6 +45,8 @@ return {
 
               require("telescope.pickers")
                 .new({}, {
+                  sorting_strategy = "ascending",
+                  layout_config = { prompt_position = "top" },
                   prompt_title = "Harpoon",
                   finder = require("telescope.finders").new_table({
                     results = file_paths,

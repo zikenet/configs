@@ -5,6 +5,7 @@ return {
     name = "catppuccin",
     opts = {
       flavour = "mocha", -- latte, frappe, macchiato, mocha
+      -- flavour = "frappe",
       transparent_background = true, -- disables setting the background color.
       integrations = {
         barbecue = { dim_dirname = true, bold_basename = true, dim_context = false, alt_background = false },
@@ -70,32 +71,33 @@ return {
       },
       color_overrides = {
         latte = {
-          rosewater = "#c14a4a",
-          flamingo = "#c14a4a",
-          red = "#c14a4a",
-          maroon = "#c14a4a",
-          pink = "#945e80",
-          mauve = "#945e80",
-          peach = "#c35e0a",
-          yellow = "#b47109",
-          green = "#6c782e",
-          teal = "#4c7a5d",
-          sky = "#4c7a5d",
-          sapphire = "#4c7a5d",
-          blue = "#45707a",
-          lavender = "#45707a",
-          text = "#654735",
-          subtext1 = "#73503c",
-          subtext0 = "#805942",
-          overlay2 = "#8c6249",
-          overlay1 = "#8c856d",
-          overlay0 = "#a69d81",
-          surface2 = "#bfb695",
-          surface1 = "#d1c7a3",
-          surface0 = "#e3dec3",
-          base = "#f9f5d7",
-          mantle = "#f0ebce",
-          crust = "#e8e3c8",
+          rosewater = "#DC8A78",
+          flamingo = "#DD7878",
+          mauve = "#CBA6F7",
+          pink = "#F5C2E7",
+          red = "#E95678",
+          maroon = "#B33076",
+          peach = "#FF8700",
+          yellow = "#F7BB3B",
+          green = "#AFD700",
+          blue = "#61AFEF",
+          sky = "#04A5E5",
+          teal = "#B5E8E0",
+          lavender = "#7287FD",
+
+          text = "#F2F2BF",
+          subtext1 = "#BAC2DE",
+          subtext0 = "#A6ADC8",
+          overlay2 = "#C3BAC6",
+          overlay1 = "#988BA2",
+          overlay0 = "#6E6B6B",
+          surface2 = "#6E6C7E",
+          surface1 = "#575268",
+          surface0 = "#302D41",
+
+          base = "#1D1536",
+          mantle = "#1C1C19",
+          crust = "#161320",
         },
         mocha = {
           rosewater = "#ea6962",
@@ -119,7 +121,7 @@ return {
           overlay1 = "#928374",
           overlay0 = "#595959",
           surface2 = "#4d4d4d",
-          surface1 = "#404040",
+          surface1 = "#737373",
           surface0 = "#292929",
           base = "#1d2021",
           mantle = "#191b1c",
@@ -151,5 +153,14 @@ return {
     opts = {
       colorscheme = "catppuccin",
     },
+  },
+  {
+    "projekt0n/github-nvim-theme",
+    name = "github-theme",
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      require("github-theme").setup({})
+    end,
   },
 }

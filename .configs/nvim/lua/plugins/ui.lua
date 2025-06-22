@@ -1,4 +1,5 @@
 return {
+  -- noice
   {
     "folke/noice.nvim",
     opts = function(_, opts)
@@ -14,26 +15,28 @@ return {
       })
     end,
   },
+  -- blink
+  {
+    "saghen/blink.cmp",
+    opts = {
+      completion = {
+        menu = {
+          border = "rounded",
+        },
+        documentation = {
+          window = {
+            border = "rounded",
+          },
+        },
+      },
+    },
+  },
+  -- mason
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
       opts.ui = {
         border = "rounded",
-      }
-    end,
-  },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    opts = function(_, opts)
-      opts.source_selector = {
-        winbar = true,
-        content_layout = "center",
-        sources = {
-          { source = "filesystem", display_name = "File" },
-          { source = "buffers", display_name = "Bufs" },
-          { source = "git_status", display_name = "Git" },
-          { source = "diagnostics", display_name = "Diagnostics" },
-        },
       }
     end,
   },
@@ -72,22 +75,6 @@ return {
     end,
   },
   {
-    "saghen/blink.cmp",
-    opts = {
-      completion = {
-        menu = {
-          border = "rounded",
-        },
-        documentation = {
-          window = {
-            border = "rounded",
-          },
-        },
-      },
-    },
-  },
-
-  {
     "snacks.nvim",
     opts = {
       dashboard = {
@@ -100,20 +87,6 @@ return {
       ███████╗██║░░░░░██║░░██║███████╗╚█████╔╝╚█████╔╝██║░╚███║
       ╚══════╝╚═╝░░░░░╚═╝░░╚═╝╚══════╝░╚════╝░░╚════╝░╚═╝░░╚══╝
       ]],
-
-        -- stylua: ignore
-        ---@type snacks.dashboard.Item[]
-        keys = {
-          { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
-          { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
-          { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
-          { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
-          { icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
-          { icon = " ", key = "s", desc = "Restore Session", section = "session" },
-          { icon = " ", key = "x", desc = "Lazy Extras", action = ":LazyExtras" },
-          { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
-          { icon = " ", key = "q", desc = "Quit", action = ":qa" },
-        },
         },
       },
     },

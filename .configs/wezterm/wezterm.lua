@@ -38,7 +38,11 @@ config.color_scheme = "OneDark"
 config.color_schemes = {
 	["OneDark"] = {
 		foreground = "#f0f6fc",
-		background = "#1e1f21",
+		-- background = "#1e1f21",
+		-- background = "#1c2023",
+		background = "#21252b",
+		-- background = "#001b21",
+		-- background = "#21252b",
 		cursor_bg = "#b1cad8",
 		cursor_fg = "#21262d",
 		cursor_border = "#CF7277",
@@ -58,7 +62,6 @@ config.color_schemes = {
 			"#F8F8F2",
 		},
 		brights = {
-
 			"#BABABA",
 			"#F43753",
 			"#C9D05C",
@@ -73,7 +76,7 @@ config.color_schemes = {
 
 config.window_decorations = "RESIZE"
 config.status_update_interval = 1000
-config.window_background_opacity = 0.9
+config.window_background_opacity = 0.95
 config.macos_window_background_blur = 10
 
 config.inactive_pane_hsb = {

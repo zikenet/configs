@@ -5,3 +5,4 @@ add_newline = false
 success_symbol = "[⇒](yellow)"
 error_symbol = "[⇒](red)"
 vicmd_symbol = "[⇐](yellow)"
+
