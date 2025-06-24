@@ -1,60 +1,60 @@
 local wezterm = require("wezterm")
-local colors = require("colors")
+
 local module = {}
 
-local function getTabTitle(tab_info)
-	local title = tab_info.tab_title
-	-- if the tab title is explicitly set, take that
-	if title and #title > 0 then
-		return title
-	end
-	-- Otherwise, use the title from the active pane
-	-- in that tab
-	return tab_info.active_pane.title
-end
+-- local SOLID_RIGHT_ARROW = "〉"
+local SOLID_RIGHT_ARROW = "〡"
+
+local COLORS = {
+	background = "#1E1F22",
+	active_edge = "#a6d189",
+	inactive_edge = "#3b3b3b",
+	text = "#000000", -- White for active tab
+	new_tab_bg = "#1E1F22", -- Background of "new tab" button
+	new_tab_fg = "#808080", -- Text/icon color of "new tab" button
+	new_tab_hover_bg = "#1E1F22",
+	new_tab_hover_fg = "#ffffff",
+}
 
 function module.apply_to_config(config)
-	wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-		local activeTabBackground = colors.primaryBackground
-		local inactiveTabBackground = colors.secondaryBackground
+	config.tab_max_width = 16 -- Try values between 10–20
+	config.colors = config.colors or {}
+	config.colors.tab_bar = config.colors.tab_bar or {}
 
-		local edgeForeground = "#CCCCCC"
-		local activeTabForeground = colors.primary
-		local inactiveTabForeground = colors.disabled
+	-- Tab bar background
+	config.colors.tab_bar.background = COLORS.background
 
-		local tabBackground = inactiveTabBackground
-		local tabForeground = inactiveTabForeground
-		local intensity = "Normal"
-		local italic = true
+	-- "New tab" button colors
+	config.colors.tab_bar.new_tab = {
+		bg_color = COLORS.new_tab_bg,
+		fg_color = COLORS.new_tab_fg,
+	}
 
-		if tab.is_active then
-			tabBackground = activeTabBackground
-			tabForeground = activeTabForeground
-			intensity = "Bold"
-			italic = true
-		end
+	config.colors.tab_bar.new_tab_hover = {
+		bg_color = COLORS.new_tab_hover_bg,
+		fg_color = COLORS.new_tab_hover_fg,
+	}
 
-		local title = getTabTitle(tab)
+	wezterm.on("format-tab-title", function(tab)
+		local bg = COLORS.background
+		local is_active = tab.is_active
+		local edge_color = is_active and COLORS.active_edge or COLORS.inactive_edge
+		local tab_index = tab.tab_index + 1 -- Convert 0-based to 1-based
+		local title_text = tostring(tab_index) .. ": Tab"
 
-		local edgeLeft = wezterm.nerdfonts.ple_lower_right_triangle
-		local edgeRight = wezterm.nerdfonts.ple_upper_left_triangle
-
-		return {
-			{ Background = { Color = colors.statusBarBackground } },
-			{ Foreground = { Color = edgeForeground } },
-			{ Text = edgeLeft },
-			{ Background = { Color = tabBackground } },
-			{ Foreground = { Color = edgeForeground } },
-			{ Text = edgeRight },
-			{ Background = { Color = tabBackground } },
-			{ Foreground = { Color = tabForeground } },
-			{ Attribute = { Intensity = intensity } },
-			{ Attribute = { Italic = italic } },
-			{ Text = title },
-			{ Background = { Color = colors.statusBarBackground } },
-			{ Foreground = { Color = tabBackground } },
-			{ Text = edgeRight },
+		local title = {
+			{ Background = { Color = bg } },
+			{ Foreground = { Color = edge_color } },
+			{ Text = " " .. title_text .. " " },
 		}
+
+		local right_arrow = {
+			{ Background = { Color = bg } },
+			{ Foreground = { Color = edge_color } },
+			{ Text = SOLID_RIGHT_ARROW },
+		}
+
+		return wezterm.format(title) .. wezterm.format(right_arrow)
 	end)
 end
 
