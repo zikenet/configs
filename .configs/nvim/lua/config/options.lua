@@ -48,3 +48,11 @@ vim.opt.formatoptions:append({ "r" })
 vim.diagnostic.config({
   float = { border = "rounded" },
 })
+
+-- windows
+if vim.fn.has("win32") == 1 then
+  vim.opt.shell = "pwsh"
+  vim.opt.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command"
+  vim.opt.shellquote = ""
+  vim.opt.shellxquote = ""
+end
