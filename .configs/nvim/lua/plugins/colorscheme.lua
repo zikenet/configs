@@ -6,7 +6,7 @@ return {
     opts = {
       flavour = "mocha", -- latte, frappe, macchiato, mocha
       -- flavour = "frappe",
-      transparent_background = true, -- disables setting the background color.
+      -- transparent_background = true, -- disables setting the background color.
       integrations = {
         barbecue = { dim_dirname = true, bold_basename = true, dim_context = false, alt_background = false },
         cmp = true,
@@ -151,16 +151,26 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "one_monokai",
     },
   },
   {
-    "projekt0n/github-nvim-theme",
-    name = "github-theme",
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other start plugins
+    "cpea2506/one_monokai.nvim",
+    lazy = false,
+    priority = 1000,
     config = function()
-      require("github-theme").setup({})
+      require("one_monokai").setup({
+        transparent = true,
+        highlights = function(colors)
+          return {
+            Normal = { bg = colors.none },
+            NormalNC = { bg = colors.none },
+            StatusLine = { bg = colors.none },
+            StatusLineNC = { bg = colors.none },
+          }
+        end,
+      })
+      vim.cmd.colorscheme("one_monokai")
     end,
   },
 }

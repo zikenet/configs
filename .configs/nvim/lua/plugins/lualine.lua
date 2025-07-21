@@ -1,19 +1,29 @@
 return {
   {
     "nvim-lualine/lualine.nvim",
-    opts = {
-      options = {
-        theme = "auto",
+    opts = function(_, opts)
+      local theme = require("lualine.themes.one_monokai")
+
+      -- Remove background for the center section
+      for _, mode in pairs(theme) do
+        if mode.c then
+          mode.c.bg = nil
+        end
+      end
+
+      opts.options = {
+        theme = theme,
+        globalstatus = vim.o.laststatus == 3,
+        disabled_filetypes = { statusline = { "dashboard", "alpha", "ministarter", "snacks_dashboard" } },
         section_separators = { left = "", right = "" },
-      },
-      sections = {
+      }
+      opts.sections = {
         lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
         lualine_b = {
-          {"branch", icon = ""}
-        },
-        lualine_y = {
-          { "progress", separator = " ", padding = { left = 1, right = 0 } },
-          { "location", padding = { left = 0, right = 1 } },
+          {
+            "branch",
+            icon = "",
+          },
         },
         lualine_z = {
           {
@@ -23,7 +33,7 @@ return {
             separator = { right = "" },
           },
         },
-      },
-    },
+      }
+    end,
   },
 }
