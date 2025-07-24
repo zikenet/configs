@@ -17,6 +17,17 @@ return {
         disabled_filetypes = { statusline = { "dashboard", "alpha", "ministarter", "snacks_dashboard" } },
         section_separators = { left = "", right = "" },
       }
+      opts.sections.lualine_c[4] = {
+        LazyVim.lualine.pretty_path({
+          length = 0,
+          relative = "cwd",
+          modified_hl = "MatchParen",
+          directory_hl = "",
+          filename_hl = "Bold",
+          modified_sign = "",
+          readonly_icon = " 󰌾 ",
+        }),
+      }
       opts.sections = {
         lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
         lualine_b = {
