@@ -4,17 +4,17 @@
 *~
 
 # Ignore Lazy.nvim plugins and build artifacts
-.config/nvim/lazy-lock.json
-.config/nvim/.local/
-.config/nvim/undo/
-.config/nvim/backup/
-.config/nvim/session/
+.configs/nvim/lazy-lock.json
+.configs/nvim/.local/
+.configs/nvim/undo/
+.configs/nvim/backup/
+.configs/nvim/session/
 
 # Ignore your custom Lua module
-.config/nvim/lua/custom/
+.configs/nvim/lua/custom/
 
 # Ignore Fish history
-.config/fish/fish_history
+.configs/fish/fish_history
 
 # Ignore all `.log` files anywhere
 *.log
