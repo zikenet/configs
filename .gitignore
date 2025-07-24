@@ -2,6 +2,7 @@
 *.swp
 *.swo
 *~
+.DS_store
 
 # Ignore Lazy.nvim plugins and build artifacts
 .configs/nvim/lazy-lock.json
