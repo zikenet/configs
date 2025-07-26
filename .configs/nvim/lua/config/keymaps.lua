@@ -78,11 +78,3 @@ keymap.del("n", "<leader>|")
 
 -- Oil
 keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
-
-keymap.set("n", "<leader>i", function()
-  require("craftzdog.lsp").toggleInlayHints()
-end)
-
-vim.api.nvim_create_user_command("ToggleAutoformat", function()
-  require("craftzdog.lsp").toggleAutoformat()
-end, {})
