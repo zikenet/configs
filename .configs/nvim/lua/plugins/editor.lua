@@ -8,25 +8,9 @@ return {
 
     keys = {
       {
-        ";c",
-        function()
-          local builtin = require("telescope.builtin")
-          builtin.lsp_incoming_calls()
-        end,
-        desc = "Lists LSP incoming calls for word under the cursor",
-      },
-      {
         "<leader>fz",
         "<cmd>Telescope zoxide list<CR>",
         desc = "Find directories",
-      },
-      {
-        ";s",
-        function()
-          local builtin = require("telescope.builtin")
-          builtin.treesitter()
-        end,
-        desc = "Lists Function names, variables, from Treesitter",
       },
       {
         "<leader>fP",

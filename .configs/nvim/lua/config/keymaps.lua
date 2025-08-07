@@ -75,6 +75,16 @@ keymap.set("n", "|", ":vsplit<Return>", opts)
 -- Disable split keys
 keymap.del("n", "<leader>-")
 keymap.del("n", "<leader>|")
+keymap.del("n", "<leader>ft")
+keymap.del("n", "<leader>fT")
+
+keymap.set("n", "<leader>ft", function()
+  require("telescope.builtin").treesitter()
+end, ext(opts, "desc", "Lists Function names, variables, from Treesitter"))
+
+keymap.set("n", "<leader>fT", function()
+  require("telescope.builtin").lsp_incoming_calls()
+end, ext(opts, "desc", "Lists LSP incoming calls for word under the cursor"))
 
 -- Oil
 keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
