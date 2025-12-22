@@ -5,15 +5,39 @@ local module = {}
 function module.apply_to_config(config)
 	config.leader = { key = "t", mods = "CTRL", timeout_milliseconds = 1000 }
 
+	wezterm.on("trigger-custom-layout", function(_, pane)
+		-- Step 1: Split off the bottom 30%
+		local bottom = pane:split({
+			direction = "Bottom",
+			size = 0.25, --Bottom 25%
+		})
+		-- Step 2: Horizontally split that bottom area into 3 panes
+		local bottom_right = bottom:split({
+			direction = "Right",
+			size = 1 / 3, -- 66% of remaining (2/3)
+		})
+		local bottom_middle = bottom:split({
+			direction = "Right",
+			size = 0.50, -- 50% of remaining (1/2)
+		})
+		-- Top pane (original) remains untouched
+	end)
+
+	wezterm.on("toggle-pane-navigator", function(window, pane)
+		window:perform_action(wezterm.action.ActivateKeyTable({ name = "pane_navigator", one_shot = false }), pane)
+	end)
+
 	config.keys = {
 		-- Send C-a when pressing C-a twice
 		-- { key = "a", mods = "LEADER|CTRL", action = act.SendKey({ key = "a", mods = "CTRL" }) },
 		{ key = "c", mods = "LEADER", action = act.ActivateCopyMode },
 		{ key = "phys:Space", mods = "LEADER", action = act.ActivateCommandPalette },
+		{ key = "i", mods = "LEADER", action = wezterm.action.EmitEvent("trigger-custom-layout") },
+		{ key = "p", mods = "LEADER", action = wezterm.action.EmitEvent("toggle-pane-navigator") },
 
 		-- Pane keybindings
 		{ key = "-", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
-		{ key = "|", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+		{ key = "Backslash", mods = "LEADER|SHIFT", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 		{ key = "h", mods = "LEADER", action = act.ActivatePaneDirection("Left") },
 		{ key = "j", mods = "LEADER", action = act.ActivatePaneDirection("Down") },
 		{ key = "k", mods = "LEADER", action = act.ActivatePaneDirection("Up") },
