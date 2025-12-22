@@ -65,6 +65,10 @@ return {
       float = {
         max_height = 21,
         max_width = 61,
+        border = "rounded",
+        win_options = {
+          winblend = 0,
+        },
       },
     },
     -- Optional dependencies

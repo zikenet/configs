@@ -61,6 +61,34 @@ function module.apply_to_config(config)
 		{ key = "w", mods = "LEADER", action = act.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }) },
 	}
 
+	config.key_tables = {
+		pane_navigator = {
+			{ key = "h", mods = "", action = wezterm.action.ActivatePaneDirection("Left") },
+			{ key = "j", mods = "", action = wezterm.action.ActivatePaneDirection("Down") },
+			{ key = "k", mods = "", action = wezterm.action.ActivatePaneDirection("Up") },
+			{ key = "l", mods = "", action = wezterm.action.ActivatePaneDirection("Right") },
+			{ key = "Return", mods = "", action = "PopKeyTable" },
+			{ key = "q", mods = "", action = "PopKeyTable" },
+		},
+
+		resize_pane = {
+			{ key = "LeftArrow", action = act.AdjustPaneSize({ "Left", 1 }) },
+			{ key = "h", action = act.AdjustPaneSize({ "Left", 1 }) },
+
+			{ key = "RightArrow", action = act.AdjustPaneSize({ "Right", 1 }) },
+			{ key = "l", action = act.AdjustPaneSize({ "Right", 1 }) },
+
+			{ key = "UpArrow", action = act.AdjustPaneSize({ "Up", 1 }) },
+			{ key = "k", action = act.AdjustPaneSize({ "Up", 1 }) },
+
+			{ key = "DownArrow", action = act.AdjustPaneSize({ "Down", 1 }) },
+			{ key = "j", action = act.AdjustPaneSize({ "Down", 1 }) },
+
+			-- Cancel the mode by pressing escape
+			{ key = "Escape", action = "PopKeyTable" },
+		},
+	}
+
 	for i = 1, 9 do
 		table.insert(config.keys, {
 			key = tostring(i),
