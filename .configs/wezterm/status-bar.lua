@@ -4,31 +4,41 @@ local utils = require("utils")
 local module = {}
 
 function module.apply_to_config(config)
-	config.window_frame = {
-		font = require("wezterm").font({ family = "DejaVuSansM Nerd Font" }),
-		font_size = 14,
-		active_titlebar_bg = colors.statusBarBackground,
-	}
+	wezterm.on("update-status", function(window, pane)
+		local stat = window:active_workspace():upper()
 
-	local function getActiveWorkspace()
-		local workspaceName = " "
-			-- .. wezterm.nerdfonts.cod_workspace_trusted
-			.. wezterm.nerdfonts.cod_verified_filled
-			.. " "
-			.. wezterm.mux.get_active_workspace():upper()
-			.. " "
+		if window:active_key_table() then
+			stat = window:active_key_table()
+		end
 
-		return utils.formatSegment({
-			left = colors.secondaryBackground,
-			text = workspaceName,
-		})
-	end
+		local basename = function(s)
+			return string.gsub(s, "(.*[/\\])(.*)", "%2")
+		end
+		-- local winBaseName = function(path)
+		-- 	return path:match("([^/\\]+)[/\\]?$")
+		-- end
+		--
+		-- local directoryName = pane:get_current_working_dir()
+		-- wezterm.log_info(directoryName.file_path)
+		-- local cwd = directoryName.path:gsub("^/", "")
+		-- if cwd then
+		-- 	directoryName = winBaseName(cwd) --> URL object introduced in 20240127-113634-bbcac864 (type(directoryName) == "userdata")
+		-- else
+		-- 	directoryName = ""
+		-- end
+		local processName = pane:get_foreground_process_name()
+		processName = processName and basename(processName) or ""
 
-	wezterm.on("update-status", function(window, _)
-		local leftStatusFormatItem = {}
-		utils.mergeTable(leftStatusFormatItem, getActiveWorkspace())
+		window:set_left_status(wezterm.format({
+			{ Foreground = { Color = colors.dim } },
+			{ Text = " " },
+			{ Text = " " .. "[" .. stat .. "]" },
+		}))
 
-		window:set_left_status(wezterm.format(leftStatusFormatItem))
+		window:set_right_status(wezterm.format({
+			{ Foreground = { Color = colors.dim } },
+			{ Text = wezterm.nerdfonts.fa_code .. " " .. processName .. " " },
+		}))
 	end)
 end
 

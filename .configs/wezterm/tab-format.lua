@@ -7,7 +7,7 @@ local SOLID_RIGHT_ARROW = "〡"
 
 local COLORS = {
 	background = "#1E1F22",
-	active_edge = "#a6d189",
+	active_edge = "#eee8d5",
 	inactive_edge = "#3b3b3b",
 	text = "#000000", -- White for active tab
 	new_tab_bg = "#1E1F22", -- Background of "new tab" button
@@ -40,7 +40,7 @@ function module.apply_to_config(config)
 		local is_active = tab.is_active
 		local edge_color = is_active and COLORS.active_edge or COLORS.inactive_edge
 		local tab_index = tab.tab_index + 1 -- Convert 0-based to 1-based
-		local title_text = tostring(tab_index) .. ": Tab"
+		local title_text = tostring(tab_index)
 
 		local title = {
 			{ Background = { Color = bg } },
@@ -50,7 +50,7 @@ function module.apply_to_config(config)
 
 		local right_arrow = {
 			{ Background = { Color = bg } },
-			{ Foreground = { Color = edge_color } },
+			{ Foreground = { Color = COLORS.inactive_edge } },
 			{ Text = SOLID_RIGHT_ARROW },
 		}
 
