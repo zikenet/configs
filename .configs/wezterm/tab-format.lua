@@ -4,13 +4,16 @@ local module = {}
 
 -- local SOLID_RIGHT_ARROW = "〉"
 local SOLID_RIGHT_ARROW = "〡"
+local ZOOM_INDICATOR = "⧉ "
 
 local COLORS = {
 	background = "#1E1F22",
+	-- background = "#21252A",
 	active_edge = "#eee8d5",
 	inactive_edge = "#627174",
 	text = "#000000", -- White for active tab
 	new_tab_bg = "#1E1F22", -- Background of "new tab" button
+	-- new_tab_bg = "#21252A", -- Background of "new tab" button
 	new_tab_fg = "#808080", -- Text/icon color of "new tab" button
 	new_tab_hover_bg = "#1E1F22",
 	new_tab_hover_fg = "#ffffff",
@@ -41,11 +44,13 @@ function module.apply_to_config(config)
 		local edge_color = is_active and COLORS.active_edge or COLORS.inactive_edge
 		local tab_index = tab.tab_index + 1 -- Convert 0-based to 1-based
 		local title_text = tostring(tab_index)
+		local zoomed = tab.active_pane and tab.active_pane.is_zoomed
+		local zoom_text = zoomed and ZOOM_INDICATOR or ""
 
 		local title = {
 			{ Background = { Color = bg } },
 			{ Foreground = { Color = edge_color } },
-			{ Text = " " .. title_text .. " " },
+			{ Text = zoom_text .. title_text .. " " },
 		}
 
 		local right_arrow = {

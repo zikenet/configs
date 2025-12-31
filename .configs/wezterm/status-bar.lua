@@ -1,8 +1,9 @@
 local wezterm = require("wezterm")
 local colors = require("colors")
+local utils = require("utils")
 local module = {}
 
-function module.apply_to_config(_)
+function module.apply_to_config(config)
 	wezterm.on("update-status", function(window, pane)
 		local stat = window:active_workspace():upper()
 
