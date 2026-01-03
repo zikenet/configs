@@ -10,6 +10,7 @@
 .configs/nvim/undo/
 .configs/nvim/backup/
 .configs/nvim/session/
+.configs/tmux/plugins/
 
 # Ignore your custom Lua module
 .configs/nvim/lua/custom/
