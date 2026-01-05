@@ -42,10 +42,30 @@ function module.apply_to_config(config)
 		local bg = COLORS.background
 		local is_active = tab.is_active
 		local edge_color = is_active and COLORS.active_edge or COLORS.inactive_edge
-		local tab_index = tab.tab_index + 1 -- Convert 0-based to 1-based
-		local title_text = tostring(tab_index)
+
+		-- tmux: #I
+		local index = tab.tab_index + 1
+
+		-- tmux: window_zoomed_flag
 		local zoomed = tab.active_pane and tab.active_pane.is_zoomed
 		local zoom_text = zoomed and ZOOM_INDICATOR or ""
+
+		-- Explicitly renamed tab title ONLY
+		local custom_title = tab.tab_title or ""
+
+		-- Truncate renamed titles
+		local MAX_TITLE_LEN = 12
+		if #custom_title > MAX_TITLE_LEN then
+			custom_title = custom_title:sub(1, MAX_TITLE_LEN) .. "…"
+		end
+
+		-- Base title
+		local title_text = tostring(index)
+
+		-- Show renamed title on active *and* inactive tabs
+		if custom_title ~= "" then
+			title_text = title_text .. ": " .. custom_title
+		end
 
 		local title = {
 			{ Background = { Color = bg } },
