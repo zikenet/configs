@@ -1,6 +1,6 @@
 function sesh_sessions
     set -l session (
-        sesh list --icons | fzf \
+        sesh list --icons | fzf  \
             --reverse \
             --no-sort \
             --ansi \
