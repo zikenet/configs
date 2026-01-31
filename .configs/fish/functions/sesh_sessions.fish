@@ -8,7 +8,7 @@ function sesh_sessions
             --prompt '⇒  ' \
             --bind 'tab:down,btab:up' \
             --bind 'ctrl-a:change-prompt(⇒  )+reload(sesh list --icons)' \
-            --bind 'ctrl-f:change-prompt(🔎  )+reload(fd -H -d 2 -t d -E .Trash . ~/Development/ ~/.config/)' \
+            --bind 'ctrl-f:change-prompt(🔎  )+reload(fd -H -d 2 -t d -E .Trash . ~/Developments/ ~/.config/)' \
             --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(sesh list --icons)'
     )
 
