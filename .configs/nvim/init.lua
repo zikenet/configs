@@ -3,5 +3,5 @@ if vim.g.vscode then
   require("vscode_setup")
 else
   require("config.lazy")
-  require("custom.dbui")
+  -- require("custom.dbui")
 end
