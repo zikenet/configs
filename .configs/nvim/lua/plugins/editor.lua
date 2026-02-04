@@ -2,7 +2,7 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
-      "nvim-telescope/telescope-file-browser.nvim",
+      "nvim-telescop/telescope-file-browser.nvim",
       "jvgrootveld/telescope-zoxide",
     },
     keys = {
@@ -10,7 +10,7 @@ return {
       -- stylua: ignore
       {
         "<leader>fP",
-        function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
+        function() require("telescope.builtin").find_files({ prompt_title = "Plugin Files", preview = true,  cwd = require("lazy.core.config").options.root }) end,
         desc = "Find Plugin File",
       },
 
@@ -27,6 +27,7 @@ return {
         layout_config = { prompt_position = "top" },
         sorting_strategy = "ascending",
         winblend = 0,
+        preview = false,
       },
     },
   },
