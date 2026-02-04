@@ -32,35 +32,21 @@ keymap.set("v", "<Leader>D", '"_D')
 keymap.set("n", "x", '"_x')
 
 -- Delete a word backwards
-keymap.set("n", "dw", 'vb"_d')
+-- keymap.set("n", "dw", 'vb"_d')
 
 -- Increment/Decrement
 keymap.set("n", "+", "<C-a>")
 keymap.set("n", "-", "<C-x>")
 
 -- Resize Window
-keymap.set("n", "<C-w><left>", "<C-w><")
-keymap.set("n", "<C-w><right>", "<C-w>>")
-keymap.set("n", "<C-w><up>", "<C-w>+")
-keymap.set("n", "<C-w><down>", "<C-w>-")
 keymap.set("n", "<leader>wr", "<C-w>=", ext(opts, "desc", "Restore Window"))
 keymap.set("n", "<leader>wm", "<C-w>_<C-w>|", ext(opts, "desc", "Maximize Window"))
 
 -- Move group visual
 keymap.set("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap.set("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap.set("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap.set("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap.set("v", "<", "<gv", opts)
 keymap.set("v", ">", ">gv", opts)
-
--- Centering
-keymap.set("n", "n", "nzz", opts)
-keymap.set("n", "N", "Nzz", opts)
-keymap.set("n", "*", "*zz", opts)
-keymap.set("n", "#", "#zz", opts)
-keymap.set("n", "g*", "g*zz", opts)
-keymap.set("n", "g#", "g#zz", opts)
 
 -- Better Escape
 keymap.set("i", "jk", "<ESC>", opts)

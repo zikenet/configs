@@ -5,40 +5,30 @@ return {
       "nvim-telescope/telescope-file-browser.nvim",
       "jvgrootveld/telescope-zoxide",
     },
-
     keys = {
+      -- add a keymap to browse plugin files
+      -- stylua: ignore
+      {
+        "<leader>fP",
+        function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
+        desc = "Find Plugin File",
+      },
+
       {
         "<leader>fz",
         "<cmd>Telescope zoxide list<CR>",
         desc = "Find directories",
       },
-      {
-        "<leader>fP",
-        function()
-          require("telescope.builtin").find_files({
-            cwd = require("lazy.core.config").options.root,
-          })
-        end,
-        desc = "Find Plugin File",
+    },
+    -- change some options
+    opts = {
+      defaults = {
+        layout_strategy = "horizontal",
+        layout_config = { prompt_position = "top" },
+        sorting_strategy = "ascending",
+        winblend = 0,
       },
     },
-    config = function(_, opts)
-      local telescope = require("telescope")
-      telescope.setup({
-        extensions = {
-          file_brower = {
-            theme = "drowpdown",
-          },
-          zoxide = {
-            sorting_strategy = "ascending",
-            layout_config = {
-              prompt_position = "top",
-            },
-            prompt_title = "zoxide",
-          },
-        },
-      })
-    end,
   },
   {
     "christoomey/vim-tmux-navigator",
@@ -76,19 +66,6 @@ return {
     -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
     -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
     lazy = false,
-  },
-  {
-    enabled = false,
-    "folke/flash.nvim",
-    ---@type Flash.Config
-    opts = {
-      search = {
-        forward = true,
-        multi_window = false,
-        wrap = false,
-        incremental = true,
-      },
-    },
   },
   {
     "kristijanhusak/vim-dadbod-ui",
