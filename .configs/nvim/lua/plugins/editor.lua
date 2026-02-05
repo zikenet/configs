@@ -2,7 +2,7 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
-      "nvim-telescop/telescope-file-browser.nvim",
+      "nvim-telescope/telescope-file-browser.nvim",
       "jvgrootveld/telescope-zoxide",
     },
     keys = {
