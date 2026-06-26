@@ -8,12 +8,12 @@ if wezterm.config_builder then
 end
 
 -- Settings
-config.font_size = 11
+config.font_size = 14
 -- config.font_size = 11 -- Mac
-config.initial_rows = 45
-config.initial_cols = 115
-config.front_end = "OpenGL"
--- config.front_end = "WebGpu" -- Mac
+config.initial_rows = 50
+config.initial_cols = 125
+-- config.front_end = "OpenGL"
+config.front_end = "WebGpu" -- Mac
 config.enable_tab_bar = true
 config.scrollback_lines = 10240
 config.use_fancy_tab_bar = true
@@ -23,9 +23,10 @@ config.enable_scroll_bar = false
 config.window_decorations = "RESIZE"
 config.color_scheme = "Decaf (base16)"
 config.automatically_reload_config = true
-config.hide_tab_bar_if_only_one_tab = false -- windows
+-- config.hide_tab_bar_if_only_one_tab = false -- windows
+config.hide_tab_bar_if_only_one_tab = true -- Mac
 config.default_cursor_style = "BlinkingBar"
-config.default_prog = { "pwsh.exe", "-NoLogo" } -- windows
+-- config.default_prog = { "pwsh.exe", "-NoLogo" } -- windows
 
 config.window_frame = {
 	font = wezterm.font({
@@ -36,50 +37,38 @@ config.window_frame = {
 	-- inactive_titlebar_bg = "#1e1e1e",
 	-- font_size = 15.0,
 }
+config.color_scheme = "NvimDark"
 
-config.color_scheme = "OneDark"
+-- config.color_scheme = "OneDark"
 config.color_schemes = {
-	["OneDark"] = {
+	["NvimDark"] = {
+		background = "#14161B",
 		foreground = "#f0f6fc",
-		-- background = "#1e1f21",
-		-- background = "#1c2023",
-		-- background = "#21252b",
-		background = "#1E1F22",
-		-- background = "#001b21",
-		-- background = "#21252b",
-		cursor_bg = "#b1cad8",
-		cursor_fg = "#21262d",
-		cursor_border = "#CF7277",
-		selection_fg = "#21262d",
-		selection_bg = "#2A4668",
-		scrollbar_thumb = "#30363d",
-		split = "#6e7681",
-
 		ansi = {
-			"#21222C",
-			"#FF5555",
-			"#50FA7B",
-			"#FFCB6B",
-			"#B3DEEF",
-			"#B148B8",
-			"#8BE9FD",
-			"#F8F8F2",
+			"#07080D",
+			"#FFC0B9",
+			"#B3F6C0",
+			"#FCE094",
+			"#A6DCFF",
+			"#FFCAFF",
+			"#8CF8F7",
+			"#EEF1F8",
 		},
+
 		brights = {
-			"#BABABA",
-			"#F43753",
-			"#C9D05C",
-			"#ffc24b",
-			"#b3deef",
-			"#d382db",
-			"#73cef4",
-			"#eeeeee",
+			"#505257",
+			"#FFC0B9",
+			"#B3F6C0",
+			"#FCE094",
+			"#A6DCFF",
+			"#FFCAFF",
+			"#8CF8F7",
+			"#EEF1F8",
 		},
 	},
 }
-
 config.status_update_interval = 1000
-config.window_background_opacity = 0.95
+config.window_background_opacity = 0.9
 config.macos_window_background_blur = 10
 
 config.inactive_pane_hsb = {
@@ -87,7 +76,7 @@ config.inactive_pane_hsb = {
 	brightness = 0.3,
 }
 
--- require("status-bar").apply_to_config(config)
+require("status-bar").apply_to_config(config)
 require("tab-format").apply_to_config(config)
 require("keymappings").apply_to_config(config)
 -- require("plugins").apply_to_config(config)

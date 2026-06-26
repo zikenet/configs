@@ -7,12 +7,14 @@ local SOLID_RIGHT_ARROW = "〡"
 local ZOOM_INDICATOR = "⧉ "
 
 local COLORS = {
-	background = "#1E1F22",
-	-- background = "#21252A",
+	-- background = "#1E1F22",
+	background = "#212226",
+	-- background = "#21252B",
 	active_edge = "#eee8d5",
 	inactive_edge = "#627174",
 	text = "#000000", -- White for active tab
-	new_tab_bg = "#1E1F22", -- Background of "new tab" button
+	-- new_tab_bg = "#1E1F22", -- Background of "new tab" button
+	new_tab_bg = "#212226", -- Background of "new tab" button
 	-- new_tab_bg = "#21252A", -- Background of "new tab" button
 	new_tab_fg = "#808080", -- Text/icon color of "new tab" button
 	new_tab_hover_bg = "#1E1F22",
