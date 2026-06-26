@@ -28,15 +28,19 @@ keymap.set("n", "<Leader>D", '"_D')
 keymap.set("v", "<Leader>d", '"_d')
 keymap.set("v", "<Leader>D", '"_D')
 
--- Disable delete character clipboard
-keymap.set("n", "x", '"_x')
+-- Disable continuations
+keymap.set("n", "<Leader>o", "o<Esc>^Da", opts)
+keymap.set("n", "<Leader>O", "O<Esc>^Da", opts)
 
--- Delete a word backwards
--- keymap.set("n", "dw", 'vb"_d')
+-- Split window
+keymap.set("n", "\\", ":split<Return>", opts)
+keymap.set("n", "|", ":vsplit<Return>", opts)
 
--- Increment/Decrement
-keymap.set("n", "+", "<C-a>")
-keymap.set("n", "-", "<C-x>")
+-- Move window
+keymap.set("n", "sh", "<C-w>h")
+keymap.set("n", "sk", "<C-w>k")
+keymap.set("n", "sj", "<C-w>j")
+keymap.set("n", "sl", "<C-w>l")
 
 -- Resize Window
 keymap.set("n", "<leader>wr", "<C-w>=", ext(opts, "desc", "Restore Window"))
@@ -45,8 +49,6 @@ keymap.set("n", "<leader>wm", "<C-w>_<C-w>|", ext(opts, "desc", "Maximize Window
 -- Move group visual
 keymap.set("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap.set("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap.set("v", "<", "<gv", opts)
-keymap.set("v", ">", ">gv", opts)
 
 -- Better Escape
 keymap.set("i", "jk", "<ESC>", opts)
@@ -54,23 +56,17 @@ keymap.set("i", "jk", "<ESC>", opts)
 -- Disable copy when pasting
 keymap.set("v", "p", '"_dp', opts)
 
--- Split window
-keymap.set("n", "\\", ":split<Return>", opts)
-keymap.set("n", "|", ":vsplit<Return>", opts)
+-- Oil
+keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
 
 -- Disable split keys
 keymap.del("n", "<leader>-")
 keymap.del("n", "<leader>|")
-keymap.del("n", "<leader>ft")
-keymap.del("n", "<leader>fT")
 
-keymap.set("n", "<leader>ft", function()
-  require("telescope.builtin").treesitter()
-end, ext(opts, "desc", "Lists Function names, variables, from Treesitter"))
+keymap.set("n", "<leader>i", function()
+  require("zfalcon.lsp").toggleInlayHints()
+end)
 
-keymap.set("n", "<leader>fT", function()
-  require("telescope.builtin").lsp_incoming_calls()
-end, ext(opts, "desc", "Lists LSP incoming calls for word under the cursor"))
-
--- Oil
-keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
+vim.api.nvim_create_user_command("ToggleAutoformat", function()
+  require("zfalcon.lsp").toggleAutoformat()
+end, {})

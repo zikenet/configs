@@ -1,5 +1,4 @@
 return {
-  -- noice
   {
     "folke/noice.nvim",
     opts = function(_, opts)
@@ -51,6 +50,30 @@ return {
 
       opts.presets.lsp_doc_border = true
     end,
+  },
+  {
+    "snacks.nvim",
+    opts = {
+      scroll = { enabled = false },
+    },
+    keys = {},
+  },
+  -- buffer line
+  {
+    "akinsho/bufferline.nvim",
+    event = "VeryLazy",
+    keys = {
+      { "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
+      { "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
+    },
+    opts = {
+      options = {
+        mode = "tabs",
+        -- separator_style = "slant",
+        show_buffer_close_icons = false,
+        show_close_icon = false,
+      },
+    },
   },
   -- blink
   {
@@ -128,19 +151,25 @@ return {
       },
     },
   },
-  -- disable bufferline
+
   {
-    "akinsho/bufferline.nvim",
-    keys = {
-      { "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
-      { "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
-    },
-    opts = {
-      options = {
-        mode = "tabs",
-        show_buffer_close_icons = false,
-        show_close_icon = false,
-      },
-    },
+    "nvim-lualine/lualine.nvim",
+    opts = function(_, opts)
+      local theme = require("lualine.themes.one_monokai")
+
+      -- Remove background for the center section
+      for _, mode in pairs(theme) do
+        if mode.c then
+          mode.c.bg = nil
+        end
+      end
+
+      opts.options = {
+        theme = theme,
+        globalstatus = vim.o.laststatus == 3,
+        disabled_filetypes = { statusline = { "dashboard", "alpha", "ministarter", "snacks_dashboard" } },
+        -- section_separators = { left = "", right = "" },
+      }
+    end,
   },
 }
