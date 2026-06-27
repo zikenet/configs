@@ -11,10 +11,6 @@ function module.map(t, func)
 	return result
 end
 
-function module.inspect(value)
-	wezterm.log_info("Inspect: " .. wezterm.to_string(value))
-end
-
 function module.mergeTable(result, toBeMerged)
 	for _, v in pairs(toBeMerged) do
 		table.insert(result, v)

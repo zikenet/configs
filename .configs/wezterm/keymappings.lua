@@ -3,7 +3,7 @@ local act = wezterm.action
 local module = {}
 
 function module.apply_to_config(config)
-	config.leader = { key = "t", mods = "CTRL", timeout_milliseconds = 1000 }
+	config.leader = { key = "w", mods = "CTRL", timeout_milliseconds = 1000 }
 
 	wezterm.on("trigger-custom-layout", function(_, pane)
 		-- Step 1: Split off the bottom 30%

@@ -19,7 +19,6 @@ function module.apply_to_config(config)
 		-- end
 		--
 		local directoryName = pane:get_current_working_dir()
-		wezterm.log_info(directoryName.file_path)
 		local cwd = directoryName.path:gsub("^/", "")
 		if cwd then
 			directoryName = basename(cwd) --> URL object introduced in 20240127-113634-bbcac864 (type(directoryName) == "userdata")
