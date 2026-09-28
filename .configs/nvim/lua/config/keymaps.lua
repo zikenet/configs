@@ -36,19 +36,9 @@ keymap.set("n", "<Leader>O", "O<Esc>^Da", opts)
 keymap.set("n", "\\", ":split<Return>", opts)
 keymap.set("n", "|", ":vsplit<Return>", opts)
 
--- Move window
-keymap.set("n", "sh", "<C-w>h")
-keymap.set("n", "sk", "<C-w>k")
-keymap.set("n", "sj", "<C-w>j")
-keymap.set("n", "sl", "<C-w>l")
-
 -- Resize Window
 keymap.set("n", "<leader>wr", "<C-w>=", ext(opts, "desc", "Restore Window"))
 keymap.set("n", "<leader>wm", "<C-w>_<C-w>|", ext(opts, "desc", "Maximize Window"))
-
--- Move group visual
-keymap.set("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap.set("x", "K", ":move '<-2<CR>gv-gv", opts)
 
 -- Better Escape
 keymap.set("i", "jk", "<ESC>", opts)
